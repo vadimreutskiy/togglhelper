@@ -1,0 +1,26 @@
+{
+	"manifest_version" : 2,
+	"name" : "Toggl anti-cheat",
+	"description" : "Checks for overlapping timing on toggl.com and highlights problem ones",
+	"version" : "1.0",
+	
+	"background" : {
+		"persistent": false,
+		"page": "bg.html"
+	},
+	
+	"page_action" : {
+		"default_icon" : "icon.png",
+		"default_popup" : "popup.html",
+		"default_title" : "Toggl anti-cheat"
+	},
+	
+	"content_scripts" : [
+		{
+			"matches"	: ["https://*.toggl.com/*", "https://toggl.com/*"],
+			"js"		: ["cs.js"]
+		}
+	],
+	
+	"permissions" : ["tabs", "activeTab", "storage"]
+}
